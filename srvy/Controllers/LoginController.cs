@@ -23,6 +23,7 @@ namespace srvy.Controllers
         public static string Email = "";
         public static string Password = "";
         // GET: Login
+        //
         public ActionResult Index()
         {
             return View();
