@@ -1,0 +1,91 @@
+﻿@model srvy.Models.TBL_USERS
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        .form-label-group{
+            margin-left:15px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Kullanıcı Bilgilerim</title>
+    <link href="~/Content/bilgilerim.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm("PasswordUpdate", "Login", FormMethod.Post))
+    {
+        <div class="container" style="margin-top:100px;">
+            <div class="row">
+                <div class="col-5">
+                    <b>Kullanıcı Bilgilerim</b>
+                </div>
+                <div class="col-5">
+                    <b>Şifre Güncelle</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    @Html.Label("Adınız:")
+                    <div class="form-label-group">
+                        @Html.TextBox("Ad", (string)ViewBag.FirstName, new { @class = "form-control", disabled = "true" })
+                    </div>
+                </div>
+                <div class="col-5">
+                    @Html.Label("Geçerli Şifrem:")
+                    <div class="form-label-group formR">
+                        @Html.TextBoxFor(user => user.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(user => user.Password)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    @Html.Label("Soyadınız:")
+                    <div class="form-label-group ">
+                        @Html.TextBox("LastName", (string)ViewBag.LastName, new { @class = "form-control", disabled = "true" })
+                    </div>
+                </div>
+                <div class="col-5">
+                    @Html.Label("Yeni Şifre:")
+                    <div class="form-label-group formR">
+                        @Html.TextBoxFor(user => user.newPassword, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(user => user.newPassword)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    @Html.Label("E-Mail:")
+                    <div class="form-label-group">
+                        @Html.TextBox("E-Mail", (string)ViewBag.eMail, new { @class = "form-control", disabled = "true" })
+                    </div>
+                </div>
+                <div class="col-5">
+                    @Html.Label("Yeni Şifre(Tekrar):")
+                    <div class="form-label-group formR">
+                        @Html.TextBoxFor(user => user.newPassword, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(user => user.newPassword)
+                        @Html.DisplayFor(user => user.PasswordError)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-5">
+                    <input type="submit" class="btn btn- btn-danger btn-block text-uppercase " formaction="PasswordUpdate" formmethod="post" value="GÜNCELLE" />
+                </div>
+            </div>
+        </div>
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    }
+
+</body>
+</html>

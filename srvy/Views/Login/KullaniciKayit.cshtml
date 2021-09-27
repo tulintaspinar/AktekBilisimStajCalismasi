@@ -1,0 +1,45 @@
+﻿@model srvy.Models.TBL_USERS
+@{
+    ViewBag.Title = "HOŞGELDİNİZ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<title>HOŞGELDİNİZ</title>
+@using (Html.BeginForm("KullaniciKayit", "Login", FormMethod.Post))
+{
+
+    <div class="container" style="margin-top:50px;">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">ÜYE OL</h5>
+                        <form class="form-signin">
+                            <div class="form-label-group">
+                                @Html.Label("Adınız:")
+                                @Html.TextBoxFor(user => user.FirstName, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-label-group">
+                                @Html.Label("Soyadınız:")
+                                @Html.TextBoxFor(user => user.LastName, new { @class = "form-control" })
+                            </div>
+                            <div class="form-label-group">
+                                @Html.Label("E-Mail:")
+                                @Html.TextBoxFor(user => user.Email, new { @class = "form-control" })
+                            </div>
+                            <div class="form-label-group">
+                                @Html.Label("Şifre:")
+                                @Html.TextBoxFor(user => user.Password, new { @class = "form-control" })
+                            </div>
+                            <br />
+                            <input class="btn btn-lg btn-danger btn-block text-uppercase" type="submit" id="btnUyeOl" value="ÜYE OL" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+}
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dfca7f61f0c04f3abadcf1b9c6807f9a" Name="Diagram1">
+        <EntityTypeShape EntityType="AnketDBModel.TBL_USERS" Width="1.5" PointX="0.75" PointY="0.5" />
+        <EntityTypeShape EntityType="AnketDBModel.TBL_QUESTIONSANSWERS" Width="1.5" PointX="7.625" PointY="4.75" />
+        <EntityTypeShape EntityType="AnketDBModel.TBL_SURVEY" Width="1.5" PointX="3.25" PointY="1.375" />
+        <EntityTypeShape EntityType="AnketDBModel.TBL_SURVEYQUESTIONS" Width="1.5" PointX="5.375" PointY="4.125" />
+        <EntityTypeShape EntityType="AnketDBModel.TBL_USERSRESPONSE" Width="1.5" PointX="8" PointY="0.5" />
+        <AssociationConnector Association="AnketDBModel.FK_TBL_QUESTIONSANSWERS_TBL_SURVEY" />
+        <AssociationConnector Association="AnketDBModel.FK_TBL_QUESTIONSANSWERS_TBL_SURVEYQUESTIONS" />
+        <AssociationConnector Association="AnketDBModel.FK_TBL_SURVEY_TBL_USERS" />
+        <AssociationConnector Association="AnketDBModel.FK_TBL_SURVEYQUESTIONS_TBL_SURVEY" />
+        <AssociationConnector Association="AnketDBModel.FK_TBL_USERSRESPONSE_TBL_SURVEY" />
+        <AssociationConnector Association="AnketDBModel.FK_TBL_USERSRESPONSE_TBL_SURVEYQUESTIONS" />
+        <AssociationConnector Association="AnketDBModel.FK_TBL_USERSRESPONSE_TBL_USERS" />
+        <EntityTypeShape EntityType="AnketDBModel.sysdiagrams" Width="1.5" PointX="2.875" PointY="9" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

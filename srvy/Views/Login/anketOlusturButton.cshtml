@@ -1,0 +1,73 @@
+﻿@model srvy.Models.TBL_SURVEY
+@{
+    ViewBag.Title = "anketOlusturButton";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>ANKET OLUŞTUR</title>
+    <script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+    <script type="text/javascript">
+        function SoruOlustur() {
+            var div = soru();
+            $("#SORU").append(div);
+
+        }
+        function soru() {
+            var div = $("<div/>");
+            var label = $("<input/>").attr("type", "textbox").attr("class", "form-control").attr("value", "SORU:").attr('disabled', 'disabled');
+            var textBox = $("<input/>").attr("type", "textbox").attr("name", "DynamicTextBox").attr("class", "form-control");
+            var radioButton = $("<input/>").attr("type", "radio").attr("name", "DynamicRadioButton").attr("class", "");
+            var cevapTXT = $("<input/>").attr("type", "textbox").attr("name", "cevapTextbox").attr("class", "form-control");
+            var radioButton2 = $("<input/>").attr("type", "radio").attr("name", "DynamicRadioButton").attr("class", "");
+            var cevapTXT2 = $("<input/>").attr("type", "textbox").attr("name", "cevapTextbox").attr("class", "form-control");
+            var radioButton3 = $("<input/>").attr("type", "radio").attr("name", "DynamicRadioButton").attr("class", "");
+            var cevapTXT3 = $("<input/>").attr("type", "textbox").attr("name", "cevapTextbox").attr("class", "form-control");
+            var radioButton4 = $("<input/>").attr("type", "radio").attr("name", "DynamicRadioButton").attr("class", "");
+            var cevapTXT4 = $("<input/>").attr("type", "textbox").attr("name", "cevapTextbox").attr("class", "form-control");
+            div.append(label);
+            div.append(textBox);
+            div.append(radioButton);
+            div.append(cevapTXT);
+            div.append(radioButton2);
+            div.append(cevapTXT2);
+            div.append(radioButton3);
+            div.append(cevapTXT3);
+            div.append(radioButton4);
+            div.append(cevapTXT4);
+            return div;
+        }
+    </script>
+    <style>
+        #anket {
+            width: 1400px;
+            height: 500px;
+            margin-left: 400px;
+            margin-bottom: 250px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body style="margin-top:100px;">
+    @using (Html.BeginForm("txtEkle", "Login", FormMethod.Post))
+    {
+        <div id="anket" class="container">
+            <div id="anketAdi">
+                <div>@Html.Label("ANKET ADI"):</div>
+                <div>@Html.TextBoxFor(sn => sn.SurveyName, new { @class = "form-control" })</div>
+            </div>
+            <br />
+            <div id="SORU">
+            </div>
+            <br />
+            <div id="anketKaydet" class="row">
+                <div class="col-2"> <input id="btnEKLE" class="btn btn-block btn-danger btn-block" type="button" value="SORU EKLE" onclick="SoruOlustur()" /></div>
+                <div class="col-2"><input type="submit" class="btn btn-block btn-danger btn-block" value="ANKETİ KAYDET" /></div>
+            </div>
+        </div>
+
+    }
+</body>
+</html>
+

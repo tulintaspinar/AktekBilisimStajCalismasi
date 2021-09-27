@@ -1,0 +1,41 @@
+﻿@model List<srvy.Models.TBL_SURVEY>
+@{
+    ViewBag.Title = "Anketler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <link href="~/Content/blog-home.css" rel="stylesheet" />
+    <link href="~/Content/anketler_bootstrap.min.css" rel="stylesheet" />
+    <title>ANKETLER</title>
+</head>
+<body>
+    @using (Html.BeginForm("anketOylamaSayfasi", "Home", FormMethod.Post))
+    {
+        <div class="container" style="width:75%; margin-top:10px; margin-bottom:100px;">
+
+            @foreach (var item in Model)
+            {
+                var surveyName = item.SurveyName;
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">@surveyName</h2>
+                        @if (surveyName != @item.SurveyName)
+                        {<h2 class="card-title">@surveyName</h2>}
+                    else
+                    { }
+                        <button type="submit" class="btn btn-danger" name="SurveyID" value=@item.ID formaction="anketOylamaSayfasi" formmethod="post"> BAŞLA </button>
+                    </div>
+                </div>
+
+            }
+        </div>
+    }
+
+    <script src="~/Scripts/anketler_jquery.min.js"></script>
+    <script src="~/Scripts/anektler_bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

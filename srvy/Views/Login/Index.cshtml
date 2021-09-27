@@ -1,0 +1,60 @@
+﻿@model srvy.Models.TBL_USERS
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <title>HOŞGELDİNİZ</title>
+</head>
+<body>
+    <div class="container" style="margin-bottom:50px; margin-top:150px;">
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-danger alert-dismissable">
+                <strong>@TempData["Message"]</strong>
+            </div>
+        }
+        @using (Html.BeginForm("GirisButonu", "Login", FormMethod.Post))
+        {
+            <div class="row-cols-6">
+                <div class="col-6">
+                    @Html.Label("E-Mail:")
+                    @Html.TextBoxFor(user => user.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(user => user.Email)
+                </div>
+            </div>
+            <div class="row-cols-6">
+                <div class="col-6">
+                    @Html.Label("Password:")
+                    @Html.TextBoxFor(user => user.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(user => user.Password)
+                    @Html.DisplayFor(user => user.LoginError)
+                </div>
+            </div>
+            <div class="row-cols-6">
+                <br />
+                <div class="col-6">
+                    <input class="btn btn-lg btn-danger btn-block text-uppercase" type="submit" id="btnUyeOl" value="Giriş Yap" />
+                </div>
+            </div>
+            <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+            <script src="~/Scripts/jquery.validate.min.js"></script>
+            <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+        }
+        <div class="row-cols-6">
+            <div class="col-6">
+                @using (Html.BeginForm("UyeOl", "Login", FormMethod.Post))
+                {
+                    <input class="btn btn-lg btn-danger btn-block text-uppercase" type="submit" id="btnUyeOl" value="Üye Ol" />
+                }
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+    
+
+
+

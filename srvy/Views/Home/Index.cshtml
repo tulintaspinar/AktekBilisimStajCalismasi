@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+    <head>
+        <title>ANASAYFA</title>
+    </head>
+    <body>
+        <header class="masthead text-center text-white">
+            <div class="masthead-content">
+                <div class="container">
+                    <h2 class="masthead-heading mb-0">Anket Hazırlamak Artık Çok Kolay </h2>
+                    <a href="~/Login/Profil" class="btn btn-primary btn-xl  mt-5" style="font-size:25px;">BAŞLA</a>
+                </div>
+
+            </div>
+        </header>
+        <div class="container" style="margin-top:50px; margin-bottom:50px;">
+            <div class="row" style="color:black; text-align:center;">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <img class="img-fluid rounded mb-4 mb-lg-0" src="~/Pictures/iconfinder_Survey_rating_rate-27_3786070.png" style="height:100px;">
+                            <br /><br />
+                            <h2 class="card-text">ANKETLERE KATIL</h2>
+                        </div>
+                        <div class="card-footer">
+                            <a href="~/Home/Anketler" class="btn btn-primary btn-sm">DAHA FAZLASI</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <img class="img-fluid rounded mb-4 mb-lg-0" src="~/Pictures/iconfinder_General_-_Office_37_1471104.png" style="height:100px;">
+                            <br /><br />
+                            <h2 class="card-text">ÜYE OLARAK ANKET HAZIRLAMAYA BAŞLA</h2>
+                        </div>
+                        <div class="card-footer">
+                            <a href="~/Login/KullaniciKayit" class="btn btn-primary btn-sm">DAHA FAZLASI</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

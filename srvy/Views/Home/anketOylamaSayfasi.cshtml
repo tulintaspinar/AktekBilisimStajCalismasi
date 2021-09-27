@@ -1,0 +1,53 @@
+﻿@model srvy.Controllers.HomeController.QuestionsANDAnswers
+@{
+    ViewBag.Title = "anketOylama";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>@ViewBag.SurveyName</title>
+</head>
+<body style="margin-top:100px;">
+
+    @using (Html.BeginForm("anketOylamaSayfasi", "Home", FormMethod.Post))
+    {
+        <div class="container">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <center> @Html.Label((string)ViewBag.SurveyName, new { style = "align:center; font-size:50px;" })</center>
+                </div>
+            </div>
+            @for (int i = 0; i < Model.Questions.Count; i++)
+            {
+                <div class="card mb-2">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            @Html.Label("SORU:", new { style = "font-size:20px;" }) @Html.TextBox("txtQuestins_"+Model.Questions[i].ID, Model.Questions[i].Questions, new { @class = "form-control", style = "font-size:20px;" })
+
+                            @for (int j = 0; j < Model.Answers.Count; j++)
+                            {
+                                var quesID = Model.Questions[i].ID;
+                                if (Model.Answers[j].QuestionsID == quesID)
+                                {
+                                    string radioButton = "radioButton_" + Model.Questions[i].ID.ToString();
+                                    string value = "radioButton_" + Model.Questions[i].ID + "_" + Model.Answers[j].ID;
+                                    @Html.RadioButtonFor(r=>r.Questions[i].ID,Model.Answers[j].ID,new { check = false})
+                                    @Html.TextBox("txtAnswers4", Model.Answers[j].Answers, new { @class = "col-5 form-control", disabled = true })
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="card mb-3">
+                <div class="card-body">
+                    <center><button type="submit" class="btn btn-danger" formmethod="post" formaction="anketOyla" style="height:50px; width:200px;">OYLA</button></center>
+                </div>
+            </div>
+
+        </div>
+    }
+</body>
+</html>
+
